@@ -22,8 +22,12 @@ namespace XamarinGPS.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Xamarin.FormsMaps.Init();
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            var tapp = new App();
+            tapp.il = new LocationManager();
+            LoadApplication(tapp);
 
             return base.FinishedLaunching(app, options);
         }
